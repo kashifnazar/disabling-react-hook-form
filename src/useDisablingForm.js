@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 export const useDisablingForm = (props) => {
@@ -8,6 +8,10 @@ export const useDisablingForm = (props) => {
 
   const disable = (flag = true) => setDisabled(flag);
   const enable = () => disable(false);
+
+  useEffect(() => {
+    disable(props.disabled);
+  }, [props.disabled]);
 
   return {
     ...methods,

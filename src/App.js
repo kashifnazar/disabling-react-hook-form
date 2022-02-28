@@ -5,7 +5,9 @@ export function App() {
     enable,
     disable,
     formState: { disabled }
-  } = useDisablingForm();
+  } = useDisablingForm({
+    diabled: true
+  });
 
   return (
     <form>
